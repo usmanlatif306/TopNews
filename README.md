@@ -30,7 +30,7 @@ php artisan migrate
 
 ## News Data Configuration:<br/>
 
-Register at https://newsdata.io/register and get api key and write down api key in .env "NEWS_DATA_KEY"
+Register at https://newsdata.io/register and get api key and write down api key in .env file:
 
 ```sh
 NEWS_DATA_KEY='news_data_api_key'
