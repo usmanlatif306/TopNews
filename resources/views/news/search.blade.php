@@ -13,7 +13,7 @@
             <!-- search results on left side -->
             <div class="col-xl-8 grid-margin">
                 <!-- livewire search component -->
-                @livewire('search',['search'=>$search]);
+                @livewire('search',['search'=>$search])
             </div>
             <!-- search results on left side end-->
 

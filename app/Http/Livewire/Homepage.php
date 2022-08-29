@@ -9,14 +9,16 @@ class Homepage extends Component
 {
     public $data = [];
     public $country = 'gb';
+    public $categories = [];
 
     protected $listeners = ['countryChanged' => 'changedCountry'];
 
     public function render()
     {
-        $categories = News::categories();
-
-        foreach ($categories as $category) {
+        $this->categories = News::categories();
+        // dd($this->categories);
+        // dd();
+        foreach ($this->categories as $category) {
             $this->data[$category] = News::whereCategory($category)->whereCountry($this->country)->latest()->take(6)->get();
         }
         $this->data['total'] = News::count();

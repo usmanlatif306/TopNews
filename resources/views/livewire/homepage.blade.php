@@ -85,24 +85,16 @@
         <div class="container">
             <div class="row py-4">
                 <div class="col-xl-8 grid-margin">
-                    <!-- Entertainment -->
-                    @include('partials.category',['news'=>$data['entertainment'],'type'=>'lg','title'=>'Entertainment'])
-    
-                    <!-- Sports -->
-                    @include('partials.category',['news'=>$data['sports'],'type'=>'sm','title'=>'Sports'])
-    
-                    <!-- Business -->
-                    @include('partials.category',['news'=>$data['business'],'type'=>'sm','title'=>'Business'])
-    
-                    <!-- Science -->
-                    @include('partials.category',['news'=>$data['science'],'type'=>'sm','title'=>'Science'])
-    
-                    <!-- Technology -->
-                    @include('partials.category',['news'=>$data['technology'],'type'=>'lg','title'=>'Technology'])
-    
-                    <!-- Health -->
-                    @include('partials.category',['news'=>$data['health'],'type'=>'sm','title'=>'Health'])
-    
+                     <!-- showing different categories news -->
+                    @foreach (array_slice($this->categories, 1) as $category)
+                    @php
+                        $type = strlen($category) < 9 ? 'sm' : 'lg';
+                        $title = ucfirst($category);
+                    @endphp
+                    @include('partials.category',['news'=>$data[$category],'type'=>$type,'title'=>$title]) 
+                    @endforeach
+                     <!-- showing different categories news end -->
+
                     <!-- recent post on left side -->
                     @livewire('homepage-view-more')
                 </div>
