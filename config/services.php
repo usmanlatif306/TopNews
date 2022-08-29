@@ -31,6 +31,8 @@ return [
     ],
 
     'multiple_countries' => env('MULTIPLE_COUNTRIES', false),
+    'country' => env('COUNTRY', 'gb'),
+    'categories' => env('CATEGORGIES'),
     'news_data_key' => env('NEWS_DATA_KEY', ''),
 
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Country;
 use App\Models\News;
 use App\Services\NewsDataService;
 use Illuminate\Console\Command;
@@ -79,9 +80,19 @@ class FetchNews extends Command
                     }
                 }
             }
+
+            $country_name = ucwords($article->country[0]);
+            // storing country in db
+            $old_country = Country::whereCode($country)->first();
+            if (!$old_country) {
+                Country::create([
+                    'name' => $country_name,
+                    'code' => $country
+                ]);
+            }
             $message = str_replace("_", " ", $category);
 
-            $this->info(ucwords($message) . ' news for ' . ucwords($article->country[0]) . ' page(' . $page . ') saved successfully!');
+            $this->info(ucwords($message) . ' news for ' . $country_name . ' page(' . $page . ') saved successfully!');
         }
         // if payload has error
         elseif ($response->status === 'error') {

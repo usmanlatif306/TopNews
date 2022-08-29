@@ -1,6 +1,7 @@
 <div class="col-md-2">
     <select class="custom-select" wire:model='country'>
-      <option value="gb">United Kingdom</option>
-      <option value="us">USA</option>
+      @foreach ($countries as $item)
+      <option {{ $country === $item->code ? 'selected="selected"' : '' }} value="{{ $item->code }}">{{ $item->name }}</option>  
+      @endforeach
     </select>
 </div>

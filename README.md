@@ -122,10 +122,38 @@ You can provide --pages flag as well with multiple country flag to get more news
 php artisan news:fetch --country=gb --country=us --pages=2
 ```
 
-If you have fetched news for multiple countries then you can show news to user for multiple country separately. To enable multiple countryies feature you just need to set "MULTIPLE_COUNTRIES" value to true in .env file. By default it is set to false. If you turn multiple countries feature then a country list will be shown to right side application logo where you can change country :
+Write down default country in .env file which you want to show news to users even if you are using single country news. By default it value is 'gb':
+
+```sh
+COUNTRY='gb'
+```
+
+If you have fetched news for multiple countries then you can show news to user for multiple country separately. To enable multiple countryies feature you just need to set "MULTIPLE_COUNTRIES" value to true in .env file. By default it is set to false. If you turn multiple countries feature then a country list will be shown to right side application logo where you can change country:
 
 ```sh
 MULTIPLE_COUNTRIES=true
+```
+
+You can fetch news about different categories. You just need to write down categories name from list in "CATEGORGIES" in .env file. Categories list are given below:<br/>
+business<br/>
+entertainment<br/>
+environment<br/>
+food<br/>
+health<br/>
+politics<br/>
+science<br/>
+sports<br/>
+technology<br/>
+world
+
+```sh
+CATEGORGIES='politics'
+```
+
+Use comma(,) for multiple categories.
+
+```sh
+CATEGORGIES='politics,business,sports'
 ```
 
 Run the dev server (the output will give the address):

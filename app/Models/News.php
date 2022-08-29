@@ -51,16 +51,29 @@ class News extends Model
         return static::where('id', '<', $this->id)->orderBy('id', 'desc')->first();
     }
 
-    // headline details
+
+    /**
+     * news description relationship
+     *
+     * @return response()
+     */
     public function news_description()
     {
         return $this->hasOne(NewsDescription::class);
     }
 
-
-    // categories
+    /**
+     * new categories
+     *
+     * @return array
+     */
     public static function categories()
     {
-        return  ['top', 'politics', 'business', 'sports', 'entertainment', 'health', 'science', 'technology', 'food'];
+        $categories = ['top'];
+        foreach (explode(",", config('services.categories')) as $category) {
+            $categories[] = trim($category);
+        }
+
+        return $categories;
     }
 }
