@@ -30,7 +30,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'news_api_token' => env('NEWS_API_TOKEN', ''),
+    'multiple_countries' => env('MULTIPLE_COUNTRIES', false),
     'news_data_key' => env('NEWS_DATA_KEY', ''),
 
 ];

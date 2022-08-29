@@ -42,8 +42,12 @@
                       <a href="{{url('/')}}"><img src="{{asset('images/TopNews-logo-1.png')}}" alt="" class="img-fluid"></a>
                   </div>
               </div>
-              {{-- livewire header component --}}
-              {{-- @livewire('header') --}}
+
+              {{-- livewire header component for multiple countries --}}
+              @if (config('services.multiple_countries'))
+                @livewire('header')
+              @endif
+            
           </div>
       </div>
   </section>
