@@ -32,7 +32,7 @@ php artisan migrate
 
 Register at https://newsdata.io/register and get api key and write down api key in .env "NEWS_DATA_KEY"
 
-Provide --country flag from available countries list<br/>
+Provide --country flag from available countries list:<br/>
 Argentina - ar,<br/>
 Australia - au,<br/>
 Austria - at,<br/>
