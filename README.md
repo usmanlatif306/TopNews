@@ -32,71 +32,69 @@ php artisan migrate
 
 Register at https://newsdata.io/register and get api key and write down api key in .env "NEWS_DATA_KEY"
 
-Provide --country flag with available countries list
-[
-Argentina - ar,
-Australia - au,
-Austria - at,
-Bangladesh - bd,
-Belgium - be,
-Brazil - br,
-Bulgaria - bg,
-Canada - ca,
-China - cn,
-Colombia - co,
-Cuba - cu,
-Czech republic - cz,
-Egypt - eg,
-France - fr,
-Germany - de,
-Greece - gr,
-Hong kong - hk,
-Hungary - hu,
-India - in,
-Indonesia - id,
-Iraq - iq,
-Ireland - ie,
-Israel - il,
-Italy - it,
-Japan - jp,
-Kazakhstan - kz,
-Latvia - lv,
-Lebanon - lb,
-Lithuania - lt,
-Malaysia - my,
-Mexico - mx,
-Morocco - ma,
-Netherland - nl,
-New zealand - nz,
-Nigeria - ng,
-North korea - kp,
-Norway - no,
-Pakistan - pk,
-Peru - pe,
-Philippines - ph,
-Poland - pl,
-Portugal - pt,
-Romania - ro,
-Russia - ru,
-Saudi arabia - sa,
-Serbia - rs,
-Singapore - sg,
-Slovakia - sk,
-Slovenia - si,
-South africa - za,
-South korea - kr,
-Spain - es,
-Sweden - se,
-Switzerland - ch,
-Taiwan - tw,
-Thailand - th,
-Turkey - tr,
-Ukraine - ua,
-United arab emirates - ae,
-United kingdom - gb,
-United states of america - us,
+Provide --country flag from available countries list<br/>
+Argentina - ar,<br/>
+Australia - au,<br/>
+Austria - at,<br/>
+Bangladesh - bd,<br/>
+Belgium - be,<br/>
+Brazil - br,<br/>
+Bulgaria - bg,<br/>
+Canada - ca,<br/>
+China - cn,<br/>
+Colombia - co,<br/>
+Cuba - cu,<br/>
+Czech republic - cz,<br/>
+Egypt - eg,<br/>
+France - fr,<br/>
+Germany - de,<br/>
+Greece - gr,<br/>
+Hong kong - hk,<br/>
+Hungary - hu,<br/>
+India - in,<br/>
+Indonesia - id,<br/>
+Iraq - iq,<br/>
+Ireland - ie,<br/>
+Israel - il,<br/>
+Italy - it,<br/>
+Japan - jp,<br/>
+Kazakhstan - kz,<br/>
+Latvia - lv,<br/>
+Lebanon - lb,<br/>
+Lithuania - lt,<br/>
+Malaysia - my,<br/>
+Mexico - mx,<br/>
+Morocco - ma,<br/>
+Netherland - nl,<br/>
+New zealand - nz,<br/>
+Nigeria - ng,<br/>
+North korea - kp,<br/>
+Norway - no,<br/>
+Pakistan - pk,<br/>
+Peru - pe,<br/>
+Philippines - ph,<br/>
+Poland - pl,<br/>
+Portugal - pt,<br/>
+Romania - ro,<br/>
+Russia - ru,<br/>
+Saudi arabia - sa,<br/>
+Serbia - rs,<br/>
+Singapore - sg,<br/>
+Slovakia - sk,<br/>
+Slovenia - si,<br/>
+South africa - za,<br/>
+South korea - kr,<br/>
+Spain - es,<br/>
+Sweden - se,<br/>
+Switzerland - ch,<br/>
+Taiwan - tw,<br/>
+Thailand - th,<br/>
+Turkey - tr,<br/>
+Ukraine - ua,<br/>
+United arab emirates - ae,<br/>
+United kingdom - gb,<br/>
+United states of america - us,<br/>
 Venezuela - ve
-]:
 
 ```sh
 php artisan news:fetch --country=gb
