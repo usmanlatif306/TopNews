@@ -28,10 +28,10 @@ Run database migrations:
 php artisan migrate
 ```
 
-News Data Configuration:<br/><br/>
+## News Data Configuration:<br/>
+
 Register at https://newsdata.io/register and get api key and write down api key in .env "NEWS_DATA_KEY"
 
-Run News Fetch:<br/><br/>
 Provide --country flag with available countries list
 [
 Argentina - ar,
