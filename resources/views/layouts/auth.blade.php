@@ -17,7 +17,29 @@
 </head>
 
 <body>
-    @yield('content')
+    <div class="container-xxl">
+        <div class="authentication-wrapper authentication-basic container-p-y">
+            <div class="authentication-inner">
+                <!-- Register -->
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Logo -->
+                        <div class="app-brand d-flex justify-content-center">
+                            <a href="{{ url('/') }}" class="app-brand-link gap-2 text-decoration-none">
+                                {{-- <span class="app-brand-logo demo">@include('partials.macros', ['width' => 25, 'withbg' => '#696cff'])</span> --}}
+                                <span
+                                    class="app-brand-text demo text-body fs-18 fw-bolder">{{ setting('company_name') }}</span>
+                            </a>
+                        </div>
+                        <!-- /Logo -->
+
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
