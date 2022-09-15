@@ -38,7 +38,7 @@
                 @forelse ($posts as $post)
                     <tr>
                         {{-- <th scope="row">{{ $loop->iteration }}</th> --}}
-                        <td>{{ $post->title }}</td>
+                        <td>{{ substr($post->title, 0, 100) }}</td>
                         <td>
                             <input type="checkbox" value="{{ $post->status }}"
                                 {{ $post->status === 1 ? 'checked' : '' }}

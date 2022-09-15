@@ -4,7 +4,7 @@
     <div class="container page-container">
         <div class="row">
             <div class="col-md-12">
-                <h4>Site Settings</h4>
+                <h3>Site Settings</h3>
                 <hr>
             </div>
             @if (session('success'))

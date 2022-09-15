@@ -18,7 +18,7 @@ class HomepageViewMore extends Component
     public function render()
     {
         return view('livewire.homepage-view-more', [
-            'latests' => News::latest()->take($this->result)->get(),
+            'latests' => News::whereStatus(true)->latest()->take($this->result)->get(),
         ]);
     }
 

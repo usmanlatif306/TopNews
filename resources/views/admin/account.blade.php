@@ -4,7 +4,7 @@
     <div class="container page-container">
         <div class="row">
             <div class="col-md-12">
-                <h3>Site Settings</h3>
+                <h3>Account</h3>
                 <hr>
             </div>
             @if (session('success'))
@@ -63,7 +63,8 @@
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input id="password" class="form-control @error('password') border-danger @enderror"
-                                    type="password" name="password" placeholder="Password">
+                                    type="password" name="password"
+                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;">
                                 @error('password')
                                     <span class="text-danger d-block mb-1" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -74,7 +75,8 @@
                             <div class="form-group">
                                 <label for="password_confirmation">Password Confirmation</label>
                                 <input id="password_confirmation" class="form-control" type="password"
-                                    name="password_confirmation" placeholder="Password Confirmation">
+                                    name="password_confirmation"
+                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;">
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                         </form>

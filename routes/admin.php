@@ -26,7 +26,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('seo', [SeoController::class, 'store'])->name('seo.store');
         Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
         Route::post('settings', [SettingController::class, 'store'])->name('settings.store');
-        Route::get('settings/account', [SettingController::class, 'account'])->name('settings.account');
+        Route::get('account', [SettingController::class, 'account'])->name('settings.account');
         Route::post('settings/image', [SettingController::class, 'profile_image'])->name('settings.image');
         Route::post('settings/profile', [SettingController::class, 'general'])->name('settings.profile');
     });

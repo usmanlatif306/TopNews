@@ -24,7 +24,7 @@ class SitemapController extends Controller
         foreach ($categories as $category) {
             $page = News::select(['updated_at', 'slug'])->whereCategory($category)->latest()->first();
             $data['pages'][$category]['route'] = 'page';
-            $data['pages'][$category]['updated_at'] = $page->updated_at;
+            $data['pages'][$category]['updated_at'] = $page->updated_at ?? now();
         }
 
         // sitemap for news

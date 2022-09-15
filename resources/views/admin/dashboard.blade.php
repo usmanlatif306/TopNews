@@ -9,6 +9,10 @@
             </div>
         </div>
         {{-- admin posts show --}}
-        @livewire('admin-posts')
+        <div class="card">
+            <div class="card-body">
+                @livewire('admin-posts')
+            </div>
+        </div>
     </div>
 @endsection

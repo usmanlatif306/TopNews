@@ -9,6 +9,11 @@
             </div>
         </div>
         {{-- admin category show --}}
-        @livewire('category')
+        <div class="card">
+            <div class="card-body">
+                @livewire('category')
+            </div>
+        </div>
+
     </div>
 @endsection
