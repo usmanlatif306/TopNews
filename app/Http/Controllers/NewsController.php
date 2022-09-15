@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
-use App\Services\NewsDataService;
+use App\Services\SeoService;
 use Illuminate\Http\Request;
+use Artesaos\SEOTools\Facades\SEOTools;
 
 class NewsController extends Controller
 {
@@ -15,14 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        // $query = array("country" => "gb", "page" => 0);
-        // (new NewsDataService())->getLatestNews($query);
-        // $categories = News::categories();
-
-        // foreach ($categories as $category) {
-        //     $data[$category] = News::whereCategory($category)->whereCountry('gb')->latest()->take(6)->get();
-        // }
-        // $data['total'] = News::count();
+        (new SeoService())->load('homepage');
         return view('homepage');
     }
 
@@ -35,7 +29,7 @@ class NewsController extends Controller
      */
     public function page($category)
     {
-        // $data['page'] = News::whereCategory($category)->latest()->take(12)->get();
+        (new SeoService())->load($category);
         return view('page', compact('category'));
     }
 
@@ -43,6 +37,13 @@ class NewsController extends Controller
     public function show($category, News $news)
     {
         $news->load('news_description');
+
+        SEOTools::setTitle($news->title . ' | ' . config('app.name'));
+        SEOTools::setDescription($news->news_description->description);
+        SEOTools::setCanonical(url('/'));
+        SEOTools::opengraph()->setUrl(route('news.show', [$news->category, $news->slug]));
+        SEOTools::jsonLd()->addImage(asset('images/TopNews-logo-1.png'));
+
 
         $latests = News::whereCategory($news->category)->latest()->take(5)->get();
 

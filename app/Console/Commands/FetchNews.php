@@ -38,7 +38,6 @@ class FetchNews extends Command
             $this->error('Invalid page numbers, should be greater then 0');
         } else {
             $categories = News::categories();
-
             // fetching news based on different countries
             foreach ($countries as $country) {
                 // fetching different categories news

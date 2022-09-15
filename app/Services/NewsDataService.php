@@ -18,7 +18,7 @@ class NewsDataService
      */
     public function __construct()
     {
-        $this->newsDataObj = new NewsdataApi(config('services.news_data_key'));
+        $this->newsDataObj = new NewsdataApi(setting('news_data_key'));
     }
 
     // getting latest news

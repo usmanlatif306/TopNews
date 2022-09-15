@@ -10,7 +10,7 @@ class News extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $fillable = ['title', 'slug', 'author', 'image', 'category', 'url', 'source', 'country'];
+    protected $fillable = ['title', 'slug', 'author', 'image', 'category', 'url', 'source', 'country', 'status'];
 
     public function sluggable(): array
     {
@@ -67,13 +67,22 @@ class News extends Model
      *
      * @return array
      */
-    public static function categories()
+    public static function categories($show = true, $page = null)
     {
-        $categories = ['top'];
-        foreach (explode(",", config('services.categories')) as $category) {
-            $categories[] = trim($category);
-        }
+        $data = [];
+        $categories = Category::whereStatus(true)->get();
+        $top = $categories->where('name', 'top')->first();
 
-        return $categories;
+        if (!$top && $show) {
+            $top_category = Category::where('name', 'top')->get();
+            $categories = $top_category->merge($categories);
+        }
+        if ($page) {
+            $data[] = $page;
+        }
+        foreach ($categories as $category) {
+            $data[] = $category->name;
+        }
+        return $data;
     }
 }

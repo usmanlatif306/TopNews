@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@section('title',config('app.name', 'Laravel'))
+@push('seo')
+    {!! SEO::generate() !!}
+@endpush
 
 @section('content')
-
-{{-- homepage livewire component --}}
-@livewire('homepage')
-
+    {{-- homepage livewire component --}}
+    @livewire('homepage')
 @endsection

@@ -16,10 +16,8 @@ class Homepage extends Component
     public function render()
     {
         $this->categories = News::categories();
-        // dd($this->categories);
-        // dd();
         foreach ($this->categories as $category) {
-            $this->data[$category] = News::whereCategory($category)->whereCountry($this->country)->latest()->take(6)->get();
+            $this->data[$category] = News::whereCategory($category)->whereCountry($this->country)->whereStatus(true)->latest()->take(6)->get();
         }
         $this->data['total'] = News::count();
 

@@ -4,7 +4,9 @@
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SitemapController;
 use App\Models\News;
+use App\Services\NewsDataService;
 use App\Services\NewsService;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +21,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/', function () {
-//     News::get()->dd();
-//     $res = (new NewsService())->getTopHeadLines('gb', 'sports');
+//     // News::get()->dd();
+//     $query = array('country' => 'gb');
+//     $res = (new NewsDataService())->getLatestNews($query);
 //     dd($res);
 // });
+
+// Admin Routes
+require base_path() . '/routes/admin.php';
 
 // sitemap
 Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.xml');

@@ -17,7 +17,7 @@ class SitemapController extends Controller
     public function index()
     {
         // sitemap for pages
-        $categories = News::categories();
+        $categories = News::categories(false);
         $data['pages']['homepage']['route'] = 'homepage';
         $data['pages']['homepage']['updated_at'] = News::select(['updated_at', 'slug'])->whereCategory('top')->latest()->first()->updated_at;
 
@@ -36,6 +36,7 @@ class SitemapController extends Controller
             $post['updated_at'] = $item->updated_at;
             $data['news'][] = $post;
         }
+        // dd($data);
 
 
         return response()->view('sitemap.index', compact('data'))->header('Content-Type', 'text/xml');

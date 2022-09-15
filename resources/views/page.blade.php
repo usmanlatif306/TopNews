@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title',ucwords($category).' - '.config('app.name', 'Laravel'))
+@push('seo')
+    {!! SEO::generate() !!}
+@endpush
 @section('content')
-
-{{-- single category page livewire --}}
-@livewire('category-page', ['category' => $category])
-
+    {{-- single category page livewire --}}
+    @livewire('category-page', ['category' => $category])
 @endsection

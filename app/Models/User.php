@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'image'
     ];
 
     /**
@@ -41,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public  function image()
+    {
+        return url('/') . $this->image;
+    }
 }

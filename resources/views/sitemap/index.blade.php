@@ -17,12 +17,12 @@
 	@endforeach
 
 	{{-- news sites map --}}
-	{{-- @foreach ($data['news'] as $item)
+	@foreach ($data['news'] as $item)
 	<url>
 		<loc>{{ route($item['route'],[$item['category'],$item['slug']]) }}</loc>
 		@if($item['updated_at'])
 		<lastmod>{{ $item['updated_at']->tz('UTC')->toAtomString() }}</lastmod>
 		@endif
 	</url>
-	@endforeach --}}
+	@endforeach
 </urlset>
