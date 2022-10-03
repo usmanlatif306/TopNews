@@ -10,6 +10,7 @@
 
     @stack('seo')
 
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
     {{-- <title>@yield('title')</title> --}}
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

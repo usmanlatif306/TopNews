@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Country;
 use App\Models\News;
+use App\Models\Setting;
 use App\Services\NewsDataService;
 use Illuminate\Console\Command;
 use Stichoza\GoogleTranslate\GoogleTranslate;
@@ -34,30 +35,41 @@ class FetchNews extends Command
         $pages = (int)$this->option('pages') - 1;
         $countries = $this->option('country');
 
-        if ($pages < 0) {
-            $this->error('Invalid page numbers, should be greater then 0');
-        } else {
-            $categories = News::categories();
-            // fetching news based on different countries
-            foreach ($countries as $country) {
-                // fetching different categories news
-                foreach ($categories  as $category) {
-                    // fetching news pages as come from request
-                    for ($page = 0; $page <= $pages; $page++) {
-                        $query = array("country" => $country, "category" => $category, "page" => $page);
-                        $top_headlines = (new NewsDataService())->getLatestNews($query);
-                        $this->save_results($top_headlines, $country, $category, $page + 1);
-                    }
-                }
-            }
-        }
+        Setting::create([
+            'key' => 'country',
+            'value' => $countries[0]
+        ]);
+        Setting::create([
+            'key' => 'pages',
+            'value' => $pages
+        ]);
+
+        // $this->info('countries: ' . $countries . ', Pages: ' . $pages);
+        // if ($pages < 0) {
+        //     $this->error('Invalid page numbers, should be greater then 0');
+        // } else {
+        //     $categories = News::categories();
+        //     // fetching news based on different countries
+        //     foreach ($countries as $country) {
+        //         // fetching different categories news
+        //         foreach ($categories  as $category) {
+        //             // fetching news pages as come from request
+        //             for ($page = 0; $page <= $pages; $page++) {
+        //                 $query = array("country" => $country, "category" => $category, "page" => $page);
+        //                 $top_headlines = (new NewsDataService())->getLatestNews($query);
+        //                 $this->save_results($top_headlines, $country, $category, $page + 1);
+        //             }
+        //         }
+        //     }
+        // }
     }
 
     // saving results is database
     private function save_results($response, $country, $category = 'top', $page)
     {
-        // is payload is successfull
-        if ($response->status === 'success') {
+        $country_name = 'United Kingdom';
+        // is payload is successfull and results array is not empty
+        if ($response->status === 'success' && count($response->results) > 0) {
             foreach ($response->results as $article) {
                 // if news has image and content then save to db
                 if ($article->image_url && $article->content) {
@@ -77,18 +89,21 @@ class FetchNews extends Command
                             'content' => $article->content,
                         ]);
                     }
+
+                    // storing country in db if length is greater than 0
+                    if (count($article->country) > 0) {
+                        $country_name = ucwords($article->country[0]);
+                        $old_country = Country::whereCode($country)->first();
+                        if (!$old_country) {
+                            Country::create([
+                                'name' => $country_name,
+                                'code' => $country
+                            ]);
+                        }
+                    }
                 }
             }
 
-            $country_name = ucwords($article->country[0]);
-            // storing country in db
-            $old_country = Country::whereCode($country)->first();
-            if (!$old_country) {
-                Country::create([
-                    'name' => $country_name,
-                    'code' => $country
-                ]);
-            }
             $message = str_replace("_", " ", $category);
 
             $this->info(ucwords($message) . ' news for ' . $country_name . ' page(' . $page . ') saved successfully!');

@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     // News::get()->dd();
-//     $query = array('country' => 'gb');
+//     $query = array('country' => 'gb', "category" => 'food', "page" => 7);
 //     $res = (new NewsDataService())->getLatestNews($query);
 //     dd($res);
 // });

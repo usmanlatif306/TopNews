@@ -40,8 +40,8 @@
           <div class="row align-items-center py-4">
               <div class="col-md-6">
                   <div class="logo">
-                      <a href="{{ url('/') }}"><img src="{{ asset('images/TopNews-logo-1.png') }}" alt=""
-                              class="img-fluid"></a>
+                      <a href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}"
+                              alt="{{ config('app.name') }}" class="img-fluid company-logo"></a>
                   </div>
               </div>
               <div class="col-md-6">
@@ -60,12 +60,12 @@
   </section>
   <!-- End Logo Area -->
 
-  <section class="navbar-expand-md navbar-bg">
+  <section class="navbar-expand-lg navbar-bg">
       <div class="container">
           <nav class="navbar">
               <div class="container-fluid">
-                  <a class="navbar-brand" href="#"><img src="{{ asset('images/TopNews-logo-1.png') }}"
-                          alt=""></a>
+                  <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}"
+                          alt="{{ config('app.name') }}"></a>
                   <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
                       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                       aria-expanded="false" aria-label="Toggle navigation">

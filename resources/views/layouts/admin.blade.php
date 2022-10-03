@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - {{ setting('company_name') }}</title>
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/logo-mini.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('assets/vendors/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/ti-icons/css/themify-icons.css') }}">

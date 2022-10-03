@@ -13,7 +13,7 @@
                         <div class="col-12 col-lg-8 stretch-card grid-margin">
                             <div class="position-relative hover-effect">
                                 <div class="post-thumb position-relative">
-                                    <img src="{{ $news->image }}" alt="banner"
+                                    <img src="{{ $news->image }}" alt="{{ $news->title }}"
                                         class="img-custom-top ffff w-100 cursor-pointer" />
                                     <div class="img-overlay cursor-pointer">
                                     </div>
@@ -34,7 +34,7 @@
                         <div class="col-12 col-lg-4 grid-margin d-lg-flex">
                             <div class="position-relative hover-effect">
                                 <div class="post-thumb position-relative">
-                                    <img src="{{ $news->image }}" alt="banner" class="img-custom-top" />
+                                    <img src="{{ $news->image }}" alt="{{ $news->title }}" class="img-custom-top" />
                                     <div class="img-overlay"></div>
                                 </div>
                                 <!-- <div class="badge badge-danger p-1 top-right">Global News</div> -->
@@ -60,7 +60,7 @@
                     <div class="col-12 col-md-6 col-xl-3 mb-3">
                         <div class="position-relative hover-effect">
                             <div class="post-thumb position-relative">
-                                <img src="{{ $news->image }}" alt="banner" class="img-custom" />
+                                <img src="{{ $news->image }}" alt="{{ $news->title }}" class="img-custom" />
                                 <div class="img-overlay"></div>
                             </div>
                             <!-- <div class="badge badge-danger p-1 top-right">Global News</div> -->
@@ -115,7 +115,7 @@
                             @foreach ($data['top']->take(5) as $latest)
                                 <div class="row py-2 border-bottom border-light">
                                     <div class="col-sm-4 pr-2">
-                                        <img src="{{ $latest->image }}" alt="thumb"
+                                        <img src="{{ $latest->image }}" alt="{{ $latest->title }}"
                                             class="img-fluid w-100 rounded" />
                                     </div>
                                     <div class="col-sm-8 pl-2">

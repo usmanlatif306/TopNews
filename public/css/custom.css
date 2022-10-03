@@ -1,3 +1,9 @@
+.company-logo {
+    width: 250px;
+}
+.navbar-brand img {
+    width: 180px !important;
+}
 .text-justify {
     text-align: justify;
 }

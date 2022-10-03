@@ -4,7 +4,7 @@
          <div class="row">
              <div class="col-md-4">
                  <div class="f-about">
-                     <img src="{{asset('images/TopNews-logo-1.png')}}" alt="" />
+                     <img src="{{ asset('images/logo-white.png') }}" alt="{{ config('app.name') }}" class="company-logo" />
                      <p>
                          Lorem ipsum dolor sit amet, consectet adipisicing elit. Saepe
                          porro neque a nam nulla quos atque.
@@ -45,19 +45,22 @@
                      <div class="sec-title">
                          <h5>Recent Posts</h5>
                      </div>
-                     @foreach($recent_posts as $post)
-                     <div class="row py-2 border-bottom border-secondary">
-                         <div class="col-sm-4 pr-2">
-                             <img src="{{$post->image}}" alt="thumb" class="img-fluid w-100 rounded" />
-                         </div>
-                         <div class="col-sm-8 pl-2">
-                             <p class="fs-16 font-weight-bold mb-0"><a href="{{route('news.show',[$post->category,$post->slug])}}" class="footer-title">{{$post->title}}</a></p>
-                             <p class="fs-13 text-muted mb-0">
-                                 <span class="mr-2">{{$post->created_at->toFormattedDateString()}} - </span><span class="text-danger fw-bold">{{$post->author}}</span>
-                             </p>
+                     @foreach ($recent_posts as $post)
+                         <div class="row py-2 border-bottom border-secondary">
+                             <div class="col-sm-4 pr-2">
+                                 <img src="{{ $post->image }}" alt="thumb" class="img-fluid w-100 rounded" />
+                             </div>
+                             <div class="col-sm-8 pl-2">
+                                 <p class="fs-16 font-weight-bold mb-0"><a
+                                         href="{{ route('news.show', [$post->category, $post->slug]) }}"
+                                         class="footer-title">{{ $post->title }}</a></p>
+                                 <p class="fs-13 text-muted mb-0">
+                                     <span class="mr-2">{{ $post->created_at->toFormattedDateString() }} -
+                                     </span><span class="text-danger fw-bold">{{ $post->author }}</span>
+                                 </p>
 
+                             </div>
                          </div>
-                     </div>
                      @endforeach
                  </div>
              </div>
