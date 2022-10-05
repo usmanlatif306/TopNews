@@ -140,19 +140,15 @@
         width: 60% !important;
     }
 }
-@media (max-width: 767px) {
+
+@media (max-width: 991px) {
     .logo-area,
     .top-bar {
         display: none;
     }
 }
-@media (min-width: 767px) {
+@media (min-width: 991px) {
     .navbar-brand {
-        display: none;
-    }
-}
-@media (max-width: 810px) {
-    .top-bar {
         display: none;
     }
 }

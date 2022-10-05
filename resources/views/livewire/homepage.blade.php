@@ -9,7 +9,7 @@
             <!-- upper top news -->
             <div class="row mb-3 mt-4" data-aos="fade-up">
                 @foreach ($data['top']->take(2) as $news)
-                    @if ($loop->index == 0)
+                    @if ($loop->first)
                         <div class="col-12 col-lg-8 stretch-card grid-margin">
                             <div class="position-relative hover-effect">
                                 <div class="post-thumb position-relative">
@@ -95,11 +95,13 @@
                             $type = strlen($category) < 9 ? 'sm' : 'lg';
                             $title = ucfirst($category);
                         @endphp
-                        @include('partials.category', [
-                            'news' => $data[$category],
-                            'type' => $type,
-                            'title' => $title,
-                        ])
+                        @if (count($data[$category]) > 0)
+                            @include('partials.category', [
+                                'news' => $data[$category],
+                                'type' => $type,
+                                'title' => $title,
+                            ])
+                        @endif
                     @endforeach
                     <!-- showing different categories news end -->
 
