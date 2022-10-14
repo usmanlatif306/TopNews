@@ -28,10 +28,12 @@ class SeoController extends Controller
     {
         $fields = $request->except('_token');
         foreach ($fields as $key => $value) {
-            Setting::updateOrCreate(
-                ['key' => $key],
-                ['key' => $key, 'value' => $value]
-            );
+            if ($value) {
+                Setting::updateOrCreate(
+                    ['key' => $key],
+                    ['key' => $key, 'value' => $value]
+                );
+            }
         }
 
         return redirect()->back()->with('success', 'Seo fields updated succeffully');
