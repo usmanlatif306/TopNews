@@ -1,6 +1,14 @@
-# Smart Genix
+# Top News
 
 A application for news.
+
+## Screenshots
+
+![Home](https://firebasestorage.googleapis.com/v0/b/laravel-notification-22697.appspot.com/o/topnews%2Fscreenshot-localhost_8000-2023.09.19-12_38_19.png?alt=media&token=55dd59a0-804c-4429-8725-e3f68174fcbf)
+
+![Home](https://firebasestorage.googleapis.com/v0/b/laravel-notification-22697.appspot.com/o/topnews%2Fscreenshot-localhost_8000-2023.09.19-12_38_47.png?alt=media&token=73534e64-fab3-4c1e-8a90-32acb1cd6312)
+
+![Home](https://firebasestorage.googleapis.com/v0/b/laravel-notification-22697.appspot.com/o/topnews%2Fscreenshot-localhost_8000-2023.09.19-12_39_41.png?alt=media&token=ffe1236a-1ea4-4be8-afc5-ea35a914e37c)
 
 ## Installation
 
